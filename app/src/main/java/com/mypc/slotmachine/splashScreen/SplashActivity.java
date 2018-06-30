@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.mypc.slotmachine.MainActivity;
+import com.mypc.slotmachine.ui.MainActivity;
 import com.mypc.slotmachine.R;
 
 public class SplashActivity extends AppCompatActivity {

@@ -1,9 +1,7 @@
 package com.mypc.slotmachine.dialog;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -13,7 +11,7 @@ import android.view.Window;
 import android.widget.TextView;
 
 import com.mypc.slotmachine.R;
-import com.mypc.slotmachine.Win;
+import com.mypc.slotmachine.singleton.Win;
 
 public class WinDialog extends DialogFragment {
 

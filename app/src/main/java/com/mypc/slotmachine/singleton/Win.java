@@ -1,4 +1,4 @@
-package com.mypc.slotmachine;
+package com.mypc.slotmachine.singleton;
 
 public class Win {
 

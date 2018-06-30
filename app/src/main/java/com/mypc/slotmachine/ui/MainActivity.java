@@ -1,4 +1,4 @@
-package com.mypc.slotmachine;
+package com.mypc.slotmachine.ui;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -9,9 +9,11 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mypc.slotmachine.R;
 import com.mypc.slotmachine.adapter.SlotMachineAdapter;
 import com.mypc.slotmachine.dialog.WinDialog;
-import com.mypc.slotmachine.servisec.SingleToast;
+import com.mypc.slotmachine.services.SingleToast;
+import com.mypc.slotmachine.singleton.Win;
 
 import kankan.wheel.widget.OnWheelChangedListener;
 import kankan.wheel.widget.OnWheelScrollListener;
@@ -53,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
     private int myCoin;
 
     private boolean test = false;
+    private boolean wheelScrolled = false;
     private WinDialog dialog;
 
     @Override
@@ -84,8 +87,6 @@ public class MainActivity extends AppCompatActivity {
                     line--;
                     tvBet.setText(String.valueOf(counter));
                     tvCoins.setText(String.valueOf(coins));
-//                    tvLine.setText(String.valueOf(line));
-//                    tvTextJackpot.setText(String.valueOf(jackpot + counter));
                 }else {
                     SingleToast.show(getApplicationContext(), "Баланс не может быть отрицательным...", Toast.LENGTH_SHORT);
                 }
@@ -99,32 +100,31 @@ public class MainActivity extends AppCompatActivity {
                     counter  = counter + 5;
                     coins  = coins -5;
                     line++;
-//                    tvTextJackpot.setText(String.valueOf(jackpot + counter));
                     tvBet.setText(String.valueOf(counter));
                     tvCoins.setText(String.valueOf(coins));
-//                    tvLine.setText(String.valueOf(line));
                 } else {
                     SingleToast.show(getApplicationContext(), "Упс... Деньги закончились...", Toast.LENGTH_SHORT);
                 }
             }
         });
 
+
+
         btnSpin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 test = true;
+                btnSpin.setEnabled(false);
                 int bet = Integer.parseInt(tvBet.getText().toString());
                 myCoin = coins - 5;
                 tvCoins.setText(String.valueOf(myCoin));
-                Log.d("MYTAGDASD", String.valueOf(bet));
 
                 tvTextJackpot.setText(String.valueOf(jackpot + bet));
 
                 mixWheel(R.id.slot_1);
                 mixWheel(R.id.slot_2);
                 mixWheel(R.id.slot_3);
-                Log.d("MYTAGDASD", String.valueOf(myCoin));
-
+                btnSpin.setEnabled(true);
             }
         });
 
@@ -134,10 +134,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    // Wheel scrolled flag
-    private boolean wheelScrolled = false;
-
-    // Wheel scrolled listener
     OnWheelScrollListener scrolledListener = new OnWheelScrollListener() {
         @Override
         public void onScrollingStarted(WheelView wheel) {
@@ -150,7 +146,6 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    // Wheel changed listener
     private OnWheelChangedListener changedListener = new OnWheelChangedListener() {
         @Override
         public void onChanged(WheelView wheel, int oldValue, int newValue) {
@@ -161,12 +156,17 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private void updateStatus() {
+        Log.d("sadsadasdasdasd", "test");
         if (test() > 0) {
             coins = coins + test();
+
+            Log.d("sadsadasdasdasd", String.valueOf(coins));
+            Log.d("sadsadasdasdasd", String.valueOf(coins + test()));
+
             tvCoins.setText(String.valueOf(coins));
             Win.getInstance().setCounter(test());
             if (coins > 0) {
-                myDialog(coins);
+                myDialog();
             }
         }
     }
@@ -195,9 +195,6 @@ public class MainActivity extends AppCompatActivity {
         }else if (romb == value && romb == value1 && romb == value2){
             return rombCoin;
         }
-        else if (romb == value && romb == value1 && romb == value2){
-            return rombCoin;
-        }
         else if (tref == value && tref == value1 && tref == value2){
             return trefCoin;
         }
@@ -221,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
         wheel.scroll(-350 + (int)(Math.random() * 50), 2000);
     }
 
-    private void myDialog(int coins) {
+    private void myDialog() {
         dialog = new WinDialog();
         dialog.setCancelable(true);
         dialog.show(getSupportFragmentManager(), "fragment");
