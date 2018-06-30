@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="@mipmap/background"
+    android:scaleType="centerCrop">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="0.15">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/ivTextJeckpot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="15dp"
+                android:src="@mipmap/text_jackpot" />
+
+            <ImageView
+                android:id="@+id/ivFieldJeckpot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="54dp"
+                android:src="@mipmap/field_jackpot" />
+
+            <TextView
+                android:layout_centerInParent="true"
+                android:id="@+id/tvTextJackpot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="63dp"
+                android:text="100000"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:layout_marginTop="5dp"
+                android:id="@+id/ivBoardJackpot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/ivFieldJeckpot"
+                android:src="@mipmap/board_jackpot"
+                android:layout_marginBottom="5dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/logo" />
+
+            <LinearLayout
+                android:id="@+id/llCombination"
+                android:layout_width="250dp"
+                android:layout_height="230dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignTop="@+id/ivFieldJeckpot"
+                android:layout_marginStart="182dp"
+                android:orientation="horizontal">
+
+                <kankan.wheel.widget.WheelView android:id="@+id/slot_1"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:background="@color/colorWhite"/>
+
+                <kankan.wheel.widget.WheelView android:id="@+id/slot_2"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:background="@color/colorWhite"/>
+
+                <kankan.wheel.widget.WheelView android:id="@+id/slot_3"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:background="@color/colorWhite"/>
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight="0.3"-->
+                    <!--android:orientation="vertical">-->
+                    <!--<kankan.wheel.widget.WheelView android:id="@+id/slot_1"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_width="match_parent" />-->
+                <!--</LinearLayout>-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight="0.3"-->
+                    <!--android:orientation="vertical">-->
+                    <!--<kankan.wheel.widget.WheelView android:id="@+id/slot_2"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_width="match_parent"/>-->
+                <!--</LinearLayout>-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight="0.3"-->
+                    <!--android:orientation="vertical">-->
+                    <!--<kankan.wheel.widget.WheelView android:id="@+id/slot_3"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_width="match_parent"/>-->
+                <!--</LinearLayout>-->
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvTextCombination"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@+id/ivTextJeckpot"
+                android:layout_marginEnd="14dp"
+                android:text="COMBINATION"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:background="@mipmap/board_combinations"
+                android:layout_marginBottom="5dp"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.75"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/ivBtnSettings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/btn_selector_setings" />
+
+            <ImageView
+                android:id="@+id/ivCoinPict"
+                android:layout_width="77dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="36dp"
+                android:src="@mipmap/coins_picture_redact" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="89dp"
+                android:src="@mipmap/field_coins" />
+
+            <TextView
+                android:id="@+id/tvMyCoins"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@+id/ivCoinPict"
+                android:text="MY COINS"
+                android:textColor="@color/colorWhite"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvCoins"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="125dp"
+                android:text="995"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/ivFieldLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="212dp"
+                android:src="@mipmap/field_lines" />
+
+            <TextView
+                android:id="@+id/tvMyLines"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="235dp"
+                android:text="LINE"
+                android:textColor="@color/colorWhite"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="242dp"
+                android:text="1"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp" />
+
+            <ImageButton
+                android:id="@+id/ivBtnMinus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="256dp"
+                android:background="@drawable/btn_selector_plusminus"/>
+
+            <ImageView
+                android:id="@+id/ivFieldBet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="172dp"
+                android:src="@mipmap/field_bet" />
+
+            <ImageButton
+                android:id="@+id/ivBtnPlus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="159dp"
+                android:background="@drawable/btn_selector_plusminus"
+                android:src="@mipmap/button_small" />
+
+            <TextView
+                android:id="@+id/tvMinus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="278dp"
+                android:text="-"
+                android:textColor="@color/colorBlack"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/tvPlus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/ivFieldBet"
+                android:layout_alignParentTop="true"
+                android:text="+"
+                android:textColor="@color/colorBlack"
+                android:textSize="25sp" />
+
+            <ImageButton
+                android:id="@+id/btnSpin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/btn_selector_spin" />
+
+            <TextView
+                android:id="@+id/tvSpin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="57dp"
+                android:text="SPIN!"
+                android:textColor="@color/colorBlack" />
+
+            <TextView
+                android:id="@+id/tvBet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="221dp"
+                android:text="5"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
